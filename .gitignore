@@ -1,5 +1,7 @@
 /tmp
 /out-tsc
+.DS_Store
+tsconfig.tsbuildinfo
 
 /node_modules
 npm-debug.log*
