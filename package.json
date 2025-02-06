@@ -1,6 +1,6 @@
 {
   "name": "vite-sync-dyn-config",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Sync Dyn Config is a plugin for Vite that allows you to dynamically inject configurations into the generated HTML file. It supports conditional inclusion via SSI (Server Side Includes).",
   "author": "Franckrst",
   "license": "MIT",
@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest --watchAll",
+    "test": "jest",
     "lint": "eslint ./src"
   },
   "devDependencies": {

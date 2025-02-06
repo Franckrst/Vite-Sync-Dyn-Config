@@ -18,7 +18,7 @@ const DEFAULT_CONFIG: UserOptions = {
     injectedVarName: "window.CONFIG"
 }
 
-export function createHtmlPlugin(
+export function createSyncDynConfigPlugin(
     userOptions: Partial<UserOptions> = {},
 ): { name: string, transformIndexHtml:()=>HtmlTagDescriptor[] } {
     const config: UserOptions = {...DEFAULT_CONFIG, ...userOptions};
@@ -28,7 +28,7 @@ export function createHtmlPlugin(
             return [{
                 tag: 'script',
                 children: `
-${ config.SSI.enable ? `<!--#set var="$SSI_VITE_CONFIG" value="1" -->
+${ config.SSI.enable ? `<!--# set var="$SSI_VITE_CONFIG" value="1" -->
 <!--# if expr="$SSI_VITE_CONFIG = 1" -->
     <!--# include virtual="${config.SSI.path}" -->
 <!--# else -->` : ``}

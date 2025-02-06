@@ -1,10 +1,10 @@
 import { describe, test, expect } from "@jest/globals"
-import {createHtmlPlugin} from "../src";
+import {createSyncDynConfigPlugin} from "../src";
 
-describe('createHtmlPlugin', () => {
+describe('createSyncDynConfigPlugin', () => {
 
     test('should use the default configuration when no user options are provided', () => {
-        const plugin = createHtmlPlugin();
+        const plugin = createSyncDynConfigPlugin();
         expect(plugin.name).toBe('vite-sync-dyn-config');
 
         const expectedScript = `
@@ -29,11 +29,11 @@ window.CONFIG = {};
             injectedVarName: "window.CustomConfig"
         };
 
-        const plugin = createHtmlPlugin(userOptions);
+        const plugin = createSyncDynConfigPlugin(userOptions);
         expect(plugin.name).toBe('vite-sync-dyn-config');
 
         const expectedScript = `
-<!--#set var="$SSI_VITE_CONFIG" value="1" -->
+<!--# set var="$SSI_VITE_CONFIG" value="1" -->
 <!--# if expr="$SSI_VITE_CONFIG = 1" -->
     <!--# include virtual="custom-config.json" -->
 <!--# else -->
@@ -54,7 +54,7 @@ window.CustomConfig = {"foo":"bar"};
             values: { test: 'data' },
         };
 
-        const plugin = createHtmlPlugin(userOptions);
+        const plugin = createSyncDynConfigPlugin(userOptions);
         const expectedScript = `
 window.CONFIG = {"test":"data"};
 `;
@@ -72,7 +72,7 @@ window.CONFIG = {"test":"data"};
             injectedVarName: "window.customVar"
         };
 
-        const plugin = createHtmlPlugin(userOptions);
+        const plugin = createSyncDynConfigPlugin(userOptions);
         const expectedScript = `
 window.customVar = {};
 `;
