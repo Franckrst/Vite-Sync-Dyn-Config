@@ -33,7 +33,7 @@ window.CONFIG = {};
         expect(plugin.name).toBe('vite-sync-dyn-config');
 
         const expectedScript = `
-<!--# set var="$SSI_VITE_CONFIG" value="1" -->
+<!--# set var="SSI_VITE_CONFIG" value="1" -->
 <!--# if expr="$SSI_VITE_CONFIG = 1" -->
     <!--# include virtual="custom-config.json" -->
 <!--# else -->

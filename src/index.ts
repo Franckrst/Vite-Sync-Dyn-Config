@@ -28,7 +28,7 @@ export function createSyncDynConfigPlugin(
             return [{
                 tag: 'script',
                 children: `
-${ config.SSI.enable ? `<!--# set var="$SSI_VITE_CONFIG" value="1" -->
+${ config.SSI.enable ? `<!--# set var="SSI_VITE_CONFIG" value="1" -->
 <!--# if expr="$SSI_VITE_CONFIG = 1" -->
     <!--# include virtual="${config.SSI.path}" -->
 <!--# else -->` : ``}
